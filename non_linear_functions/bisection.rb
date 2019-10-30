@@ -1,4 +1,4 @@
-def bissection(a, b, tol, maxiter)
+def bisection(a, b, tol, maxiter)
   iter = 0
   a = a.to_f
   b = b.to_f
