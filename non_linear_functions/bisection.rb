@@ -1,4 +1,4 @@
-def bisection(a, b, tol, maxiter)
+def bisection(a, b, tol, maxiter, f)
   iter = 0
   a = a.to_f
   b = b.to_f
@@ -6,7 +6,7 @@ def bisection(a, b, tol, maxiter)
   error = Float::INFINITY
 
   until error <= tol || iter > maxiter do
-    if yield(a) * yield(x) > 0
+    if f.(a) * f.(x) > 0
       a = x
     else
       b = x
@@ -17,6 +17,6 @@ def bisection(a, b, tol, maxiter)
     iter += 1
     puts "iter = #{iter}, x = %0.4f, a = %0.4f, b = %0.4f, error = %0.4f" % [x, a, b, error]
   end
-  fx = yield(x)
+  fx = f.(x)
   puts "%0.14f %0.14f %d" % [x, fx, iter]
 end
